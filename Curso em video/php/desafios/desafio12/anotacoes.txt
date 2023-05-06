@@ -1,0 +1,4 @@
+1 semana em segundos = 604800
+1 dia em segundos = 86400
+1 hora em segundos = 3600
+1 minuto em segundos = 60

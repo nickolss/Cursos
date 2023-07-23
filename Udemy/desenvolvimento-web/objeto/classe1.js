@@ -13,7 +13,7 @@ class CicloFinanceiro {
 	}
 
 	adicionarLancamentos(...lancamentos) {
-		lancamentos.forEach(element => thwis.lancamentos.push(element));
+		lancamentos.forEach(element => this.lancamentos.push(element));
 	}
 
 	sumario() {

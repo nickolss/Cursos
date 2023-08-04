@@ -1,0 +1,15 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets/script/servidor.js",
+  "scripts": {
+    "start": "nodemon.cmd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nickolas Maia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.2"
+  }
+}

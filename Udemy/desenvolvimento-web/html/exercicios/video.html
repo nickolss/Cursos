@@ -1,0 +1,91 @@
+<video
+	id="meuVideo"
+	width="800"
+	height="450"
+	controls
+	autoplay
+	controlsList="nodownload"
+>
+	<source
+		src="http://files.cod3r.com.br/curso-web/video.mp4"
+		type="video/mp4"
+	/>
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+	<div></div>
+</div>
+
+<div>
+	<button wm-play="meuVideo">Play</button>
+	<button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+	.progresso {
+		height: 20px;
+		width: 500px;
+		border: 1px solid #444;
+		margin: 20px;
+	}
+
+	.progresso > div {
+		background-color: red;
+		color: #fff;
+		height: 100%;
+		text-align: right;
+		font-size: 14px;
+		width: 0%;
+
+		/* O width determina quão preenchida estará a barra */
+		/* width: 30%; */
+	}
+</style>
+
+<script>
+	//Minha resulução
+	// const video = document.querySelector("#meuVideo");
+
+	// const playButton = document
+	// 	.querySelector("[wm-play]")
+	// 	.addEventListener("click", () => {
+	// 		video.play();
+	// 	});
+
+	// const pauseButton = document
+	// 	.querySelector("[wm-pause]")
+	// 	.addEventListener("click", () => {
+	// 		video.pause();
+	// 	});
+
+	// video.addEventListener("timeupdate", () => {
+	// 	const progresso = `${(video.currentTime / video.duration) * 100}%`; //currentTime é o tempo atual dele e duration a duração total do vídeo
+
+	// 	const barraProgresso = document.querySelector('[wm-progresso] > div')
+	//     barraProgresso.style.width = progresso
+	//     barraProgresso.innerHTML = `${progresso.toFixed(1)}%`
+	// });
+
+
+
+	//Resolução do Professor
+	function configurarVideo(idVideo) {
+		const video = document.getElementById(idVideo);
+		video.oncontextmenu = () => false; //Impede que salve o vídeo
+
+		document.querySelector(`[wm-play=${idVideo}]`).onclick = (e) =>
+			video.play();
+		document.querySelector(`[wm-pause=${idVideo}]`).onclick = (e) =>
+			video.pause();
+
+		setInterval(() => {
+			const percentual = (video.currentTime / video.duration) * 100;
+			const valorDiv = document.querySelector(
+				`[wm-progresso=${idVideo}] > div`
+			);
+			valorDiv.style.width = `${percentual}%`;
+			valorDiv.innerHTML = `${percentual.toFixed(1)}%`;
+		}, 500);
+	}
+	configurarVideo("meuVideo");
+</script>

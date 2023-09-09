@@ -1,51 +1,146 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Desafio Menu</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Oswald"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				margin: 0;
+				font-family: "Oswald", sans-serif;
+				background-color: #d3d3d3;
+			}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Desafio Menu</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        /* ... */
-    </style>
-</head>
+			.menu-toggle {
+				float: right;
+				color: #fff;
+				background-color: #555;
+				border: solid 1px #777;
+				border-radius: 5px;
+				padding: 10px 20px;
+			}
 
-<body>
-    <header class="cabecalho">
-        <div class="logo">
-            <a href="#inicio">
-                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
-            </a>
-        </div>
-        <button class="menu-toggle">
-            <i class="fa fa-lg fa-bars"></i>
-        </button>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="#inicio">Início</a>
-                </li>
-                <li>
-                    <a href="#cursos">Cursos</a>
-                </li>
-                <li>
-                    <a href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a href="#contato">Contato</a>
-                </li>
-            </ul>
-        </nav>
-        <aside class="autenticacao">
-            <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
-        </aside>
-    </header>
+			.cabecalho {
+				position: relative;
+				display: flex;
+				align-items: center;
 
-    <script>
-        // ...
-    </script>
-</body>
+				background-color: #343334;
+				border-bottom: solid 4px #4faddb;
+			}
 
+			.logo {
+				padding: 1rem;
+			}
+
+			.menu > ul {
+				display: flex;
+				gap: 15px;
+			}
+
+			a {
+				text-decoration: none;
+				color: #fff;
+				font-weight: bold;
+				font-size: 1.4rem;
+				padding: 1.5rem;
+			}
+
+			li {
+				list-style: none;
+			}
+
+			li > a:hover,
+			li > a.selected {
+				transition: 0.5s;
+				background-color: #69aada;
+				color: #000;
+			}
+
+			.autenticacao {
+				position: absolute;
+				right: 20px;
+			}
+
+			.botao {
+				padding: 0.5rem 1rem;
+				border-radius: 20px;
+				margin: 0 0.5rem;
+			}
+
+			.destaque {
+				background-color: #ca2424;
+			}
+
+			@media screen and (min-width: 679px) {
+				.menu-toggle {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 680px) {
+				.menu {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 910px) {
+				.autenticacao {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="cabecalho">
+			<div class="logo">
+				<a href="#inicio">
+					<img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+				</a>
+			</div>
+			<button class="menu-toggle">
+				<i class="fa fa-lg fa-bars"></i>
+			</button>
+			<nav class="menu">
+				<ul>
+					<li>
+						<a href="#inicio">Início</a>
+					</li>
+					<li>
+						<a href="#cursos">Cursos</a>
+					</li>
+					<li>
+						<a href="#sobre">Sobre</a>
+					</li>
+					<li>
+						<a href="#contato">Contato</a>
+					</li>
+				</ul>
+			</nav>
+			<aside class="autenticacao">
+				<a href="#login">Login</a>
+				<a href="#registar" class="botao destaque">Registrar</a>
+			</aside>
+		</header>
+
+		<script>
+			window.onhashchange = (e) => {
+                const oldURL = e.oldURL.split('#')[1]
+                const newURL = e.newURL.split('#')[1]
+
+                const oldMenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+                const newMenu = document.querySelector(`.menu a[href='#${newURL}']`)
+                oldMenu && oldMenu.classList.remove('selected')
+                newMenu && newMenu.classList.add('selected')
+            };
+		</script>
+	</body>
 </html>

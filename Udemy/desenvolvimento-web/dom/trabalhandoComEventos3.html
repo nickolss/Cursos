@@ -45,7 +45,26 @@
     </div>
     <div class="direita" wm-dropzone></div>
     <script>
-        // ...
+        const itens = document.querySelectorAll("[wm-dropzone] .item")
+        itens.forEach((item , index) =>{
+            item.draggable = true //Faz com que seja arrastável
+            item.id = item.id || `draggable-item-${index}`
+            item.ondragstart = event =>{
+                event.dataTransfer.setData("item-id" , event.target.id)
+            }
+        })
+
+        const dropzones = document.querySelectorAll("[wm-dropzone]")
+        dropzones.forEach(dropzone =>{
+            dropzone.ondragover = e =>{
+                e.preventDefault()
+                dropzone.ondrop = function(e){
+                    const id = e.dataTransfer.getData("item-id")
+                    const item = document.querySelector(`#${id}`)
+                    dropzone.appendChild(item)
+                }
+            }
+        })
     </script>
 </body>
 

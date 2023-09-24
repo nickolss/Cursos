@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Mini SPA</title>
+		<link rel="stylesheet" href="../css/estilo.css" />
+		<style>
+			nav {
+				font-size: 2em;
+			}
 
-<head>
-    <meta charset='UTF-8'>
-    <title>Mini SPA</title>
-    <link rel='stylesheet' href='../css/estilo.css'>
-    <style>
-        nav {
-            font-size: 2em;
-        }
+			nav a {
+				text-decoration: none;
+				color: #fff;
+				padding: 0 10px;
+			}
+		</style>
+	</head>
 
-        nav a {
-            text-decoration: none;
-            color: #FFF;
-            padding: 0 10px;
-        }
-    </style>
-</head>
+	<body class="conteudo">
+		<nav>
+			<a href wm-link="series.html" wm-destino=".pagina">Séries</a> |
+			<a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a>
+		</nav>
+		<div class="pagina"></div>
+		<script>
+			function navegarViaAjax(url, seletorCSS, push = true) {
+				if (!url || !seletorCSS) return;
 
-<body class="conteudo">
-    <nav>
-        <a href wm-link="series.html" wm-destino=".pagina">Séries</a> |
-        <a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a>
-    </nav>
-    <div class="pagina"></div>
-    <script>
-        // ...
-    </script>
-</body>
+				const elemento = document.querySelector(seletorCSS);
+
+				fetch(url)
+					.then((resp) => resp.text())
+					.then((html) => {
+						elemento.innerHTML = html;
+						if (push) {
+							history.pushState(
+								{
+									seletorCSS,
+								},
+								null,
+								url
+							);
+						}
+					});
+			}
+
+			document.querySelectorAll("[wm-link]").forEach((link) => {
+				const url = link.getAttribute("wm-link");
+				const seletorDestino = link.getAttribute("wm-destino");
+
+				link.onclick = (event) => {
+					event.preventDefault();
+
+					navegarViaAjax(url, seletorDestino);
+				};
+			});
+
+			window.onpopstate = (event) => {
+				if (event.state) {
+					navegarViaAjax(window.location.href, event.state.seletor, false);
+				}
+			};
+		</script>
+	</body>
+</html>

@@ -30,4 +30,22 @@ app.post("/upload", (req, resp, next) => {
 	});
 });
 
+app.post("/formulario", (req, resp, next) => {
+	resp.send({
+		...req.body,
+		id: 1,
+	});
+});
+
+app.get("/parOuImpar/:numero", (req, resp, next) => {
+	//Para pegar dados do front com express pode
+	// req.body
+	// req.query
+	// req.params  //Mais fácil que query
+	const par = parseInt(req.query.numero) % 2 === 0;
+	resp.send({
+		resultado: par ? "par" : "impar",
+	}); 
+});
+
 app.listen(8081, () => console.log("Executando Server"));

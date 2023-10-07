@@ -1,6 +1,5 @@
 import Pessoa from './pessoa.js';
-import './modulos/modulaA.js';
-import './assets/css/style.css';
+import './assets';
 
 const atendente = new Pessoa();
 console.log(atendente.cumprimentar());

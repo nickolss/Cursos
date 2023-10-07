@@ -1,3 +1,7 @@
-body{
-    background-color: red;
+body {
+	background-color: gray;
+	background-image: url(../imgs/imagem-aproximada-da-cabeca-de-um-lindo-leao_181624-35855.avif);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
 }

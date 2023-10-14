@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Eventos #03</title>
+		<link rel="stylesheet" href="css/estilo.css" />
+		<script src="js/jquery.js"></script>
+		<style>
+			input {
+				font-size: 2em;
+			}
 
-<head>
-    <meta charset='UTF-8'>
-    <title>Eventos #03</title>
-    <link rel='stylesheet' href='css/estilo.css'>
-    <script src='js/jquery.js'></script>
-    <style>
-        input {
-            font-size: 2em;
-        }
+			#resultado {
+				display: flex;
+				flex-direction: row;
+			}
+		</style>
+	</head>
 
-        #resultado {
-            display: flex;
-            flex-direction: row;
-        }
-    </style>
-</head>
+	<body class="conteudo exercicio">
+		<h1>Eventos #03</h1>
+		<div id="div1">1</div>
+		<div id="div2">2</div>
+		<input id="input1" type="text" placeholder="Digite Algo!" />
+		<span id="resultado"></span>
 
-<body class='conteudo exercicio'>
-    <h1>Eventos #03</h1>
-    <div id='div1'>1</div>
-    <div id='div2'>1</div>
-    <input id='input1' type='text' placeholder='Digite Algo!'>
-    <span id='resultado'></span>
+		<script>
+			function exibirDadosEvento() {
+				$('#resultado').empty();
+				const div1 = $('<div>');
+				const div2 = $('<div>');
 
-    <script>
-        // ...
-    </script>
-</body>
+				$('#resultado').append(div1, div2);
+				div1.append(`Target: ${event.target.id}`);
+
+				const rt = event.relatedTarget ? event.relatedTarget.tagName : null;
+				div1.append(`<br>RelatedTarget:  ${rt}`);
+
+				div1.append(`<br> Type: ${event.type}`);
+				div1.append(`<br> Which: ${event.which}`);
+				div1.append(`<br> Metakey: ${event.metakey}`);
+
+				div2.append(`pageX: ${event.pageX}`);
+				div2.append(`<br>pageY: ${event.pageY}`);
+				div2.append(`<br>ClientX: ${event.clientX}`);
+				div2.append(`<br>ClientY: ${event.clientY}`);
+
+				const observacao = event.data ? event.data.observacao : null;
+				div2.append(`<br>Observação: ${observacao}`);
+			}
+
+			$('#div1, #div2').on(
+				'mouseenter mouseleave',
+				{ observacao: 'FUNCIONA' },
+				exibirDadosEvento
+			);
+			$('input').keyup(exibirDadosEvento);
+		</script>
+	</body>
+</html>

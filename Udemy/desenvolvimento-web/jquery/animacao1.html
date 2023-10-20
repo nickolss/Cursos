@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Animação #01</title>
+		<link rel="stylesheet" href="css/estilo.css" />
+		<script src="js/jquery.js"></script>
+		<style>
+			div {
+				text-align: center;
+			}
+			button {
+				font-size: 1.8em;
+				margin: 10px;
+			}
+		</style>
+	</head>
 
-<head>
-    <meta charset='UTF-8'>
-    <title>Animação #01</title>
-    <link rel='stylesheet' href='css/estilo.css'>
-    <script src='js/jquery.js'></script>
-    <style>
-        div {
-            text-align: center;
-        }
-        button {
-            font-size: 1.8em;
-            margin: 10px;
-        }
-    </style>
-</head>
+	<body class="conteudo exercicio">
+		<h1>Animação #01</h1>
+		<button>Iniciar</button>
+		<div id="animar">Animar!</div>
 
-<body class='conteudo exercicio'>
-    <h1>Animação #01</h1>
-    <button>Iniciar</button>
-    <div id='animar'>Animar!</div>
-
-    <script>        
-        // ...
-    </script>
-</body>
+		<script>
+			$("button").click((element) => {
+				const temp = 450; //Em milisegundos
+				// $("#animar").hide(temp).show(temp)
+				// $("#animar").toggle(temp).toggle(temp)
+				// $("#animar").fadeOut(temp).fadeIn(temp)
+				// $("#animar").fadeToggle(temp).fadeToggle(temp)
+                // $("#animar").slideUp(temp).slideDown(temp)
+                $("#animar").slideToggle(temp).slideToggle(temp)
+			});
+		</script>
+	</body>
+</html>

@@ -4,12 +4,12 @@ import ReactDOM from "react-dom";
 // import BomDia from "./componentes/BomDia.jsx" 
 // const elemento = <h1>React</h1>
 
-import {BoaTarde, BoaNoite} from './componentes/Multiplos.jsx';
- 
+// import {BoaTarde, BoaNoite} from './componentes/Multiplos.jsx';
+import Saudacao from './componentes/Saudacao.jsx'
+
 ReactDOM.render(
     <div>
-        <BoaTarde nome='Nickolas' />
-        <BoaNoite nome='João' />
+        <Saudacao tipo="Bom dia" nome='João' />
     </div>,
     document.querySelector("#root")
 )

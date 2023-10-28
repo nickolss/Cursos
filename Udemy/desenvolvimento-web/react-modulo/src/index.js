@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-// import PrimeiroComponente from "./componentes/Primeiro.jsx";
-// import BomDia from "./componentes/BomDia.jsx" 
-// const elemento = <h1>React</h1>
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-// import {BoaTarde, BoaNoite} from './componentes/Multiplos.jsx';
-import Saudacao from './componentes/Saudacao.jsx'
+import Pai from './componentes/Pai'
+import Filho from './componentes/Filho'
 
 ReactDOM.render(
     <div>
-        <Saudacao tipo="Bom dia" nome='João' />
-    </div>,
-    document.querySelector("#root")
-)
+        <Pai nome="Paulo" sobrenome="Silva">
+            <Filho nome="Pedro" />
+            <Filho nome="Paulo" />
+            <Filho nome="Carla" />
+        </Pai>
+    </div>    
+, document.getElementById('root'))

@@ -1,8 +1,11 @@
+import Link from "next/link"
+
 function Home(){
     return(
         <div>
-            <h1>Fundamentos de Next.js e React</h1>
-            <h2>Vamos estudar esse framework</h2>
+            <Link href="/estiloso">
+                Estiloso
+            </Link>
         </div>
     )
 }

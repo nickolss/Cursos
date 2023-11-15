@@ -1,7 +1,7 @@
-function Cabecalho(){
+function Cabecalho(props){
     return(
         <header>
-            <h1>Fundamentos de Nextjs e React</h1>
+            <h1>{props.titulo}</h1>
         </header>
     )
 }

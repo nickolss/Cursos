@@ -1,5 +1,5 @@
-import Layout from "../components/Layout";
-import styles from "../styles/Estiloso.module.css";
+import Layout from "@/components/Layout";
+import styles from "@/styles/Estiloso.module.css";
 
 function Estiloso() {
 	return (

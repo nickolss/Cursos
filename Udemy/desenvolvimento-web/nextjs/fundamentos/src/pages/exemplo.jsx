@@ -1,5 +1,5 @@
-import Cabecalho from "../components/Cabecalho";
-import Layout from "../components/Layout";
+import Cabecalho from "@/components/Cabecalho";
+import Layout from "@/components/Layout";
 
 function Exemplo(){
     return(

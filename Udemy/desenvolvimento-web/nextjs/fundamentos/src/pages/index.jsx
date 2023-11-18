@@ -14,6 +14,9 @@ function Home() {
 		>
 			<Navegador link="/estiloso" texto="Estiloso" />
 			<Navegador link="/exemplo" texto="Exemplo" cor="#bbb"/>
+			<Navegador link="/cliente/sp/1" texto="Navagação Dinâmica"/>
+			<Navegador link="/estado" texto="Componente com Estado" cor="#88AA00"/>
+			<Navegador link="/estado2" texto="Componente com Estado #2" cor="#FB1457"/>
 		</div>
 	);
 }

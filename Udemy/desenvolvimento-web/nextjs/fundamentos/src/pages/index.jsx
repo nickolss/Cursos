@@ -18,6 +18,8 @@ function Home() {
 			<Navegador link="/estado" texto="Componente com Estado" cor="#88AA00"/>
 			<Navegador link="/estado2" texto="Componente com Estado #2" cor="#FB1457"/>
 			<Navegador link="/integracao1" texto="Integração com API"/>
+			<Navegador link="/estatico" texto="Conteúdo Estático"/>
+			<Navegador link="/dinamico" texto="Conteúdo Dinâmico"/>
 		</div>
 	);
 }

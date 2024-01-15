@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Template</title>
-    <link rel="stylesheet" href="/css/estilo.css">
-    <script src="/js/vue.min.js"></script>
-</head>
-<body class="exercicio">
-    
-    <script>
-        // ...
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Template</title>
+		<link rel="stylesheet" href="/css/estilo.css" />
+		<script src="/js/vue.min.js"></script>
+	</head>
+	<body class="exercicio">
+		<div id="app"></div>
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					title: "VueJS",
+					subtitle: "Framework Progressivo",
+				},
+				// template: `
+                //     An element is needed to encompass the content, like a div or fragment.
+                //     <div>
+                //         <h1>{{title}}</h1>
+                //         <h3>{{subtitle}}</h3>
+                //     </div>
+                // `,
+
+                
+				template: `
+                    <fragment>
+                        <h1>{{title}}</h1>
+                        <h3>{{subtitle}}</h3>
+                    </fragment>
+                `,
+			});
+		</script>
+	</body>
 </html>
